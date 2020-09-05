@@ -1313,5 +1313,69 @@
       </div>
     </div>
   </section>
+  <!-- Login Modal -->  
+  <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">                      
+        <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4>Login or Register</h4>
+          <form class="aa-login-form" action="">
+            <label for=""> Email address<span>*</span></label>
+            <input type="text" id ="username" placeholder="username">
+            <label for="">Password<span>*</span></label>
+            <input type="password" id="password" placeholder="Password">
+            <div id ="submit-btn" class="aa-browse-btn" type="submit">Login</div>
+            <label for="rememberme" class="rememberme"><input type="checkbox" id="rememberme"> Remember me </label>
+            <p class="aa-lost-password"><a href="">Lost your password?</a></p>
+            <div class="aa-register-now">
+              Don't have an account?<a href="shop/accounts/">Register now!</a>
+            </div>
+          </form>
+        </div>                        
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div>    
+
 
 {% endblock %}
+<!-- {% block js %} -->
+<script>
+
+$(document).ready(function () {
+  $("#submit-btn").click(function (event) {
+    event.preventDefault();
+    const username = $('#username').val().toString();
+    const password = $('#password').val().toString();
+    if (username == "") {
+      return alert("First Name is required");
+    }
+    if (password == "") {
+      return alert("Password is required");
+    }
+    const formData = {
+      "username": username,
+      // "email": email,
+      "password": password,
+    };
+    console.log(JSON.stringify(formData));
+
+    $.ajax({
+      type: "POST",
+      contentType: "application/json",
+      url: window.location.origin + "/shop/api/login/",
+      data: JSON.stringify(formData),
+      success: function (data) {
+        console.log("Login succeeded");
+        document.location.href = window.location.origin + "?#Login-model";
+      },
+      error: function () {
+        console.log(" Login failed, Register now");
+      }
+    });
+  });
+});
+
+</script>
+
+<!-- {% endblock %} -->

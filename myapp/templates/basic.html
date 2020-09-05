@@ -105,10 +105,10 @@
               <!-- / header top left -->
               <div class="aa-header-top-right">
                 <ul class="aa-head-top-nav-right">
-                  <li><a href="/accounts">My Account</a></li>
+                  <li><a href="/shop/accounts/">My Account</a></li>
                   <!-- <li class="hidden-xs"><a href="wishlist.html">Wishlist</a></li> -->
-                  <li class="hidden-xs"><a href="/trackker">My Trackker</a></li>
-                  <li class="hidden-xs"><a href="/checkout">Checkout</a></li>
+                  <li class="hidden-xs"><a href="/shop/trackker">My Trackker</a></li>
+                  <li class="hidden-xs"><a href="/shop/checkout">Checkout</a></li>
                   <li><a href="" data-toggle="modal" data-target="#login-modal">Login</a></li>
                 </ul>
               </div>
@@ -209,12 +209,12 @@
           <div class="navbar-collapse collapse">
             <!-- Left nav -->
             <ul class="nav navbar-nav">
-              <li><a href="index.html">Home</a></li>
+              <li><a href="/">Home</a></li>
               <li><a href="#">Groceries<span class="caret"></span></a>
                 <ul class="dropdown-menu">                
-                  <li><a href="#">Dal and Pulses</a></li>
-                  <li><a href="#">Dairy and Eggs</a></li>
-                  <li><a href="#">Condiments</a></li>
+                  <li><a href="groceries.html">Dal and Pulses</a></li>
+                  <li><a href="grocereis.html">Dairy and Eggs</a></li>
+                  <li><a href="groceries.html">Condiments</a></li>
                   <li><a href="#">Dry Fruits</a></li>                                                
                   <li><a href="#">Mukhtas</a></li>
                   <li><a href="#">Besan</a></li>
@@ -543,7 +543,7 @@
                 <div class="aa-footer-widget">
                   <h3>Main Menu</h3>
                   <ul class="aa-footer-nav">
-                    <li><a href="#">Home</a></li>
+                    <li><a href="/">Home</a></li>
                     <li><a href="#">Our Services</a></li>
                     <li><a href="#">Our Products</a></li>
                     <li><a href="#">About Us</a></li>
@@ -633,14 +633,14 @@
           <h4>Login or Register</h4>
           <form class="aa-login-form" action="">
             <label for="">Username or Email address<span>*</span></label>
-            <input type="text" placeholder="Username or email">
+            <input type="text" id ="email" placeholder="Username or email">
             <label for="">Password<span>*</span></label>
-            <input type="password" placeholder="Password">
-            <button class="aa-browse-btn" type="submit">Login</button>
+            <input type="password" id="password" placeholder="Password">
+            <div id ="submit-btn" class="aa-browse-btn" type="submit">Login</div>
             <label for="rememberme" class="rememberme"><input type="checkbox" id="rememberme"> Remember me </label>
             <p class="aa-lost-password"><a href="">Lost your password?</a></p>
             <div class="aa-register-now">
-              Don't have an account?<a href="/accounts">Register now!</a>
+              Don't have an account?<a href="shop/accounts/">Register now!</a>
             </div>
           </form>
         </div>                        
@@ -668,7 +668,8 @@
   <script type="text/javascript" src="{% static 'js/nouislider.js' %}"></script>
   <!-- Custom js -->
   <script src="{% static 'js/custom.js' %}"></script> 
-  {% block js %}{% endblock %}
+  {% block js %}
+  {% endblock %}
 
   </body>
 </html>
